@@ -1,0 +1,6 @@
+@HomeFinderBE_HostAddress = http://localhost:5253
+
+GET {{HomeFinderBE_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -44,11 +44,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Insert links to API Calls here once written.
+
 ItemAPI.Map(app);
 RoomAPI.Map(app);
 TagAPI.Map(app);
 ItemTagAPI.Map(app);
+UserAPI.Map(app);
 
 app.Run();
 

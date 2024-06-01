@@ -29,6 +29,23 @@ namespace HomeFinderBE.API
                 return Results.Ok(item);
             });
 
+            // Get All Items Associated With a Given Room
+            app.MapGet("/api/getAllItemsByRoom/{roomID}", async (HomeFinderDbContext db, int roomID) =>
+            {
+                // Fetch Items for the given roomID
+                var items = await db.Items
+                    .Where(item => item.RoomID == roomID)
+                    .ToListAsync();
+
+                if (!items.Any())
+                {
+                    return Results.NotFound("No items found for this room.");
+                }
+
+                return Results.Ok(items);
+            });
+
+
             // Create Item
             app.MapPost("/api/createItem", (HomeFinderDbContext db, Item newItem) =>
             {
@@ -47,7 +64,7 @@ namespace HomeFinderBE.API
 
                 db.Items.Remove(itemToDelete);
                 db.SaveChanges();
-                return Results.NoContent();
+                return Results.Ok("Item successfully deleted!");
             });
 
             // Update Item

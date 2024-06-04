@@ -34,7 +34,7 @@ namespace HomeFinderBE.API
             {
                 db.Rooms.Add(newRoom);
                 db.SaveChanges();
-                return Results.Created($"/api/createRoom/{newRoom.ID}", newRoom);
+                return Results.Created("Room Successfully Created!", newRoom);
             });
 
 
@@ -65,7 +65,7 @@ namespace HomeFinderBE.API
                 roomToUpdate.Image = updateRoom.Image;
 
                 db.SaveChanges();
-                return Results.NoContent();
+                return Results.Ok("Room successfully updated.");
             });
         }
 

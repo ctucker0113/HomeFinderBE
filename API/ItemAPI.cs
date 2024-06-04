@@ -79,7 +79,7 @@ namespace HomeFinderBE.API
                 itemToUpdate.Image = updateItem.Image;
                 itemToUpdate.RoomID = updateItem.RoomID;
                 db.SaveChanges();
-                return Results.NoContent();
+                return Results.Ok("Item successfully updated!");
             });
         }
 

@@ -49,7 +49,7 @@ namespace HomeFinderBE.API
 
                 db.Tags.Remove(tagToDelete);
                 db.SaveChanges();
-                return Results.NoContent();
+                return Results.Ok("Tag Successfully Deleted!");
             });
 
 

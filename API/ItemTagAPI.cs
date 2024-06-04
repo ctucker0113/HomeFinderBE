@@ -38,6 +38,7 @@ namespace HomeFinderBE.API
                 var item = db.Items.Find(itemID);
                 var tag = db.Tags.Find(tagID);
 
+                // Check if the Item and the Tag both exist
                 if (item == null || tag == null)
                 {
                     return Results.NotFound("Item or Tag not found.");
@@ -61,7 +62,7 @@ namespace HomeFinderBE.API
                 db.ItemTags.Add(newItemTag);
                 db.SaveChanges();
 
-                return Results.Created($"/api/addTagToItem/{itemID}/{tagID}", newItemTag.ID);
+                return Results.Ok("Tag Successfully Added to Item.");
             });
 
 
@@ -78,7 +79,7 @@ namespace HomeFinderBE.API
                 db.ItemTags.Remove(itemTagToDelete);
                 db.SaveChanges();
 
-                return Results.NoContent();
+                return Results.Ok("Tag successfully deleted from item.");
             });
         }
     }

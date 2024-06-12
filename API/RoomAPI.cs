@@ -67,6 +67,19 @@ namespace HomeFinderBE.API
                 db.SaveChanges();
                 return Results.Ok("Room successfully updated.");
             });
+
+            // Get Single Room by Room Name
+            app.MapGet("/api/getSingleRoomByName/{Name}", (HomeFinderDbContext db, string name) =>
+            {
+                var roomName = db.Rooms.FirstOrDefault(c => c.Name == name);
+
+                if (roomName == null)
+                {
+                    return Results.NotFound("Room Not Found.");
+                }
+
+                return Results.Ok(roomName);
+            });
         }
 
     }

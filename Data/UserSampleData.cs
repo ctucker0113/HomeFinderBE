@@ -11,7 +11,8 @@ namespace HomeFinderBE.Data
             {
                 ID = 1,
                 FirstName = "Cody",
-                LastName = "Tucker"
+                LastName = "Tucker",
+                UID = "DEQOPB1zCIh6UUYxEclgunPSVle2"
             }
         };
     }
